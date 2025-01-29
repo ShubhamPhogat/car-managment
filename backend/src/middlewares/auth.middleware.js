@@ -15,6 +15,7 @@ export const verifyJWT = async (req, res, next) => {
     if (!token) {
       console.log("not token");
     }
+    console.log(token);
     const decodeToken = jwt.verify(token, process.env.ACCESS_WEB_TOKEN_SECRET);
     console.log("this is edecode", decodeToken);
 

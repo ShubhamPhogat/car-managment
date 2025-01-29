@@ -19,10 +19,11 @@ const SignUp = () => {
     e.preventDefault();
     console.log("Signup Form Data:", formData);
     try {
-      await axios.post(
+      const res = await axios.post(
         `${process.env.REACT_APP_BASE_BACKEND_URL}/api/v1/auth/register`,
         formData
       );
+      console.log(res);
       navigate("/login");
     } catch (error) {
       console.error("Registration error:", error);

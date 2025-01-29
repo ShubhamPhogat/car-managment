@@ -19,7 +19,8 @@ const Login = () => {
         formData
       );
       const userdata = res.data;
-      console.log(userdata);
+      console.log(res.data.data.accessToken);
+      localStorage.setItem("accessToken", res.data.data.accessToken);
       navigate("/main", { state: { userdata: res.data } });
     } catch (error) {
       console.error("Login error:", error);

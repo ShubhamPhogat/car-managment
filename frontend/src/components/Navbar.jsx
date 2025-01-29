@@ -15,11 +15,19 @@ const Navbar = ({
   };
 
   const doLogOut = async () => {
-    await axios
-      .get(`${process.env.REACT_APP_BASE_BACKEND_URL}/api/v1/auth/logout`)
-      .then(() => {
-        navigateTologin();
-      });
+    const token = localStorage.getItem("accessToken");
+    console.log(token);
+    await axios.post(
+      `${process.env.REACT_APP_BASE_BACKEND_URL}/api/v1/auth/logout`,
+      {}, // empty body
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    localStorage.removeItem("accessToken");
+    navigateTologin();
   };
 
   return (
