@@ -18,7 +18,7 @@ const AddCar = () => {
     model: "",
     manufactureYear: "",
     price: "",
-    description: "", // Added description field
+    description: "",
     images: [],
     tags: {},
     ownerId: userdata.data.validateUser._id,
@@ -89,7 +89,6 @@ const AddCar = () => {
     e.preventDefault();
     const data = new FormData();
 
-    // Append basic fields
     data.append("name", formData.name);
     data.append("model", formData.model);
     data.append("manufactureYear", formData.manufactureYear);
@@ -98,9 +97,8 @@ const AddCar = () => {
     data.append("ownerId", formData.ownerId);
     data.append("tags", JSON.stringify(formData.tags));
 
-    // Append images with the correct field name
     formData.images.forEach((image) => {
-      data.append("image", image); // Changed to match backend expectation
+      data.append("image", image);
     });
 
     try {

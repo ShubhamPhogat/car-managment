@@ -3,7 +3,6 @@ import React from "react";
 const Card = ({ title, description, icon }) => {
   return (
     <div className="relative w-full group transform transition-all duration-300 hover:scale-110 hover:z-10">
-      {/* Rainbow border with animation */}
       <div className="absolute -inset-0.5 bg-gradient-to-r from-pink-600 via-purple-600 to-blue-600 rounded-lg opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-gradient-xy"></div>
 
       {/* Main card content */}
